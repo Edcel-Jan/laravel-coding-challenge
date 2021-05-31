@@ -67,7 +67,7 @@ function Login() {
                             Login
                         </button>
                         <a
-                            href="/register/0/0"
+                            href="/register"
                             className="btn btn-link"
                             style={{ fontSize: "16px" }}
                         >
