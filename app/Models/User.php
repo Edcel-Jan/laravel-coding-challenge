@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_invited',
+        'success_no_of_referal',
+        'failed_no_of_referal'
     ];
 
     /**
@@ -40,4 +44,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isLogin() {
+        return Auth::user() != null ? false :true;
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function referal() {
+        return $this->hasMany(EmailList::class);
+    }
+
 }
+
+
