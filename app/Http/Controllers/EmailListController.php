@@ -96,6 +96,7 @@ class EmailListController extends Controller
                         $data[$i]['email_referred'] = $referred['email'];
                         $data[$i]['date'] = Carbon::parse( $referred['created_at'])->format('Y-m-d');
                         $data[$i]['status'] = $referred['is_registered'] == 1 ? 'Registered' : 'Not Yet Registered';
+                        
                         $i++;
                     }
                 }

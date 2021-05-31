@@ -23,7 +23,6 @@ class User extends Authenticatable
         'password',
         'is_invited',
         'success_no_of_referal',
-        'failed_no_of_referal'
     ];
 
     /**
@@ -56,7 +55,7 @@ class User extends Authenticatable
     public function referal() {
         return $this->hasMany(EmailList::class);
     }
-
+    
 }
 
 

@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_invited')->default(1);
             $table->integer('success_no_of_referal')->default(0);
-            $table->integer('failed_no_of_referal')->default(0);
             $table->unsignedBigInteger('role_id')->default(2);
             $table->rememberToken();
             $table->timestamps();

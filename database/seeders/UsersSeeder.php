@@ -18,13 +18,11 @@ class UsersSeeder extends Seeder
         
         $users = array(
             [
-
                 'name' =>  'Edcel',
                 'email' => 'edcel@kestrelddm.com',
                 'password' => Hash::make('admin123'),
                 'is_invited' => 1,
                 'success_no_of_referal' => 0,
-                'failed_no_of_referal' => 0,
                 'role_id' => '1'
             ],
             [
@@ -33,7 +31,6 @@ class UsersSeeder extends Seeder
                 'password' => Hash::make('user123'),
                 'is_invited' => 1,
                 'success_no_of_referal' => 0,
-                'failed_no_of_referal' => 0,
                 'role_id' => '2'
             ]
         );
