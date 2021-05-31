@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //login
 Route::get('/', function () {
     return view('login');
-})->name('is_login');
+})->name('login')->middleware('is_login');
 
 
 //registration

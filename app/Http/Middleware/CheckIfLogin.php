@@ -20,6 +20,6 @@ class CheckIfLogin
         if(!Auth::check()) {
             return $next($request);
         }
-        
+        return redirect('/user/invite');  
     }
 }

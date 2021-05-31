@@ -1,4 +1,4 @@
-@extends('layout.layout') @section('title_name') Admin @endsection
+@extends('layout.layout') @section('title_name') User @endsection
 @section('content')
 <div id="app"></div>
 

@@ -51,9 +51,7 @@ export default function Registration() {
         const { data } = await Axios(registerConfig);
         if (data.message == "error") {
             setErrors(data.errors);
-        }
-
-        if (data.user.role_id == 1) {
+        } else {
             window.location.replace("/user/invite");
         }
     };

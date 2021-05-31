@@ -87,19 +87,22 @@ class EmailListController extends Controller
         
         $users_referal = User::with('referal')->get()->toArray();
         $data = array();
+        $i = 0;
         if(count($users_referal) > 0){
             foreach($users_referal as $key =>  $user_referal) {
                 if(count($user_referal['referal']) > 0) {
                     foreach($user_referal['referal'] as $newKey => $referred) {
-                        $data[$key]['name'] = $user_referal['name'];
-                        $data[$key]['email_referred'] = $referred['email'];
-                        $data[$key]['date'] = Carbon::parse( $referred['created_at'])->format('Y-m-d');
-                        $data[$key]['status'] = $referred['is_registered'] == 1 ? 'Registered' : 'Not Yet Registered';
+                        $data[$i]['name'] = $user_referal['name'];
+                        $data[$i]['email_referred'] = $referred['email'];
+                        $data[$i]['date'] = Carbon::parse( $referred['created_at'])->format('Y-m-d');
+                        $data[$i]['status'] = $referred['is_registered'] == 1 ? 'Registered' : 'Not Yet Registered';
+                        $i++;
                     }
                 }
 
             }
         }
+
         return array_values($data);
     }
   

@@ -1,6 +1,5 @@
 import React, { useState, useReducer } from "react";
 import Axios from "axios";
-import { data } from "jquery";
 
 const UserEmail = (state, action) => {
     switch (action.type) {
@@ -60,6 +59,7 @@ const UserEmail = (state, action) => {
 function Invite() {
     const [errors, setErrors] = useState(null);
     const [spinner, setSpinner] = useState(false);
+    const [show_message, setShowMessage] = useState(false);
     const user_email_init = {
         id: 0,
         email: "",
@@ -90,8 +90,11 @@ function Invite() {
     const inviteEmail = async () => {
         setSpinner(true);
         const { data } = await Axios(inviteEmailConfig);
+        setShowMessage(true);
         setSpinner(false);
-        console.log(data);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 3000);
     };
 
     const addEMailToListConfig = {
@@ -101,8 +104,6 @@ function Invite() {
             email: user_email,
         },
     };
-
-    console.log(user_email);
 
     const addEMailToList = async (btn) => {
         const { data } = await Axios(addEMailToListConfig);
@@ -143,6 +144,16 @@ function Invite() {
     return (
         <div className="container">
             <div className="row w-75 mx-auto mt-5">
+                {show_message ? (
+                    <div className="alert alert-success" role="alert">
+                        Invite Friends Success.
+                    </div>
+                ) : (
+                    ""
+                )}
+            </div>
+
+            <div className="row w-75 mx-auto">
                 <h1 className="mb-5">Invite Friends</h1>
 
                 <table className="table">
@@ -256,7 +267,7 @@ function Invite() {
                         {spinner ? (
                             <span>
                                 <span
-                                    class="spinner-border spinner-border-sm"
+                                    className="spinner-border spinner-border-sm"
                                     role="status"
                                     aria-hidden="true"
                                 ></span>

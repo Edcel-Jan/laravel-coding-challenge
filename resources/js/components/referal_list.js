@@ -34,7 +34,15 @@ export default function ReferalList() {
                                     <td>{el["name"]}</td>
                                     <td>{el["email_referred"]}</td>
                                     <td>{el["date"]}</td>
-                                    <td>{el["status"]}</td>
+                                    <td
+                                        className={`${
+                                            el["status"] == "Registered"
+                                                ? "text-success"
+                                                : "text-danger"
+                                        }`}
+                                    >
+                                        {el["status"]}
+                                    </td>
                                 </tr>
                             );
                         })

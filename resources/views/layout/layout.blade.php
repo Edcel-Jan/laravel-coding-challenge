@@ -21,7 +21,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Laravel Coding Challenge</a>
+            <a class="navbar-brand" href="/">Laravel Coding Challenge</a>
             <button
                 class="navbar-toggler"
                 type="button"
